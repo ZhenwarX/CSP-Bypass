@@ -1,7 +1,7 @@
 // xss.js
 
 function fetchData() {
-  const url = 'https://dev1.dev.clover.com/v3/accounts/current?expand=primaryDeveloper%2CprimaryEnterprise%2CprimaryMerchant%2CprimaryMerchant.properties%2CprimaryReseller';
+  const url = 'https://sandbox.dev.clover.com/v3/accounts/current?expand=primaryDeveloper%2CprimaryEnterprise%2CprimaryMerchant%2CprimaryMerchant.properties%2CprimaryReseller';
   const headers = new Headers({ 'Content-Type': 'application/json' });
 
   fetch(url, { 
